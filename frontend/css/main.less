@@ -1,0 +1,234 @@
+@baseColor: #83A3DA;
+
+@difference: 10%;
+@lightest: lighten(@baseColor, (@difference * 3));
+@lighter: lighten(@baseColor, (@difference * 2));
+@light: lighten(@baseColor, @difference);
+@base: @baseColor;
+@dark: darken(@baseColor, @difference);
+@darker: darken(@baseColor, (@difference * 2));
+@darkest: darken(@baseColor, (@difference * 3));
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.application {
+  width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+
+  & > header {
+    display: table;
+    width: 100%;
+  }
+
+  & > header > h1 {
+    display: table-cell;
+    padding: 6px;
+  }
+
+  button, .dropdown {
+    position: relative;
+    padding: 5px;
+    border: 1px solid @dark;
+    box-shadow: inset 1px 1px 0 @light;
+    border-radius: 3px;
+    background: @base;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    color: #fff;
+  }
+
+  input, textarea {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+    outline-color: @lighter;
+  }
+
+  .dropdown {
+    .dropdown-options {
+      position: absolute;
+      border: 1px solid #333;
+      background: #fff;
+      width: 100%;
+    }
+  }
+}
+
+.list {
+  .empty-list, .loading, .error {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: .75em;
+  }
+
+  .empty-list, .loading {
+    border: 1px solid @lighter;
+    color: #333;
+  }
+
+  .error {
+    border: 1px solid lighten(#ff4775, 30%);
+    color: #ff4775;
+  }
+}
+
+.filters {
+  display: table-cell;
+  text-align: right;
+  padding: 6px;
+  font-size: .75em;
+  -webkit-user-select: none;
+
+  h1 {
+    margin: 0 10px;
+    display: inline-block;
+    color: @base;
+    font-weight: 400;
+  }
+
+  a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .selected {
+    font-weight: 400;
+  }
+
+  .status-dropdown, .assignee-dropdown {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+.add-form, .edit-form {
+  .field.title {
+    display: block;
+  }
+
+  .error {
+    display: inline-block;
+    margin-left: 10px;
+    color: red;
+    font-size: .75em;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
+
+.list-item {
+  display: table;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid @lighter;
+
+  &:hover, &.expanded {
+    background: @lightest;
+  }
+
+  .fa-plus,
+  .fa-save,
+  .fa-remove {
+    margin-right: 5px;
+  }
+
+  .fields {
+    display: table-cell;
+    padding: 15px;
+  }
+
+  .controls {
+    display: none;
+    width: 28px;
+    color: @darker;
+    background: @lighter;
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+
+    .fa {
+      cursor: pointer;
+    }
+
+    .fa-edit {
+      position: absolute;
+      top: 5px;
+      left: 5px;;
+    }
+
+    .fa-trash {
+      position: absolute;
+      bottom: 5px;
+      left: 4px;
+    }
+  }
+
+  &:hover .controls,
+  &.expanded .controls {
+    display: table-cell;
+  }
+
+  .field {
+    vertical-align: top;
+
+    h1, label {
+      display: block;
+      font-size: .75em;
+      margin-bottom: 5px;
+      color: @base;
+      font-weight: 400;
+    }
+  }
+
+  .status {
+    display: inline-block;
+    width: 60px;
+    margin-right: 30px;
+  }
+
+  .assignee {
+    display: inline-block;
+    width: 60px;
+    margin-right: 30px;
+  }
+
+  .title {
+    display: inline-block;
+  }
+
+  &.edit-form .title {
+    margin-top: 15px;
+  }
+
+  .description {
+    margin-top: 15px;
+  }
+}
